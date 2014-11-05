@@ -33,6 +33,10 @@ var app = {
     {
         console.log("GetSkuDetails.SUCCESS: " + JSON.stringify(skuDetails));
     },
+    getSkuDetailsListSuccess: function(skuDetailsList)
+    {
+        console.log("GetSkuDetailsList.SUCCESS: " + JSON.stringify(skuDetailsList));
+    },
     getSkuDetailsFail: function(error)
     {
         console.log("GetSkuDetails.FAIL: " + error.message);
@@ -48,9 +52,7 @@ var app = {
         consumeButton.disabled = false;       
 
         // For debug purposes
-        openiab.getSkuDetails(app.getSkuDetailsSuccess, app.getSkuDetailsFail, app.SKU_PRODUCT);
-        openiab.getSkuDetails(app.getSkuDetailsSuccess, app.getSkuDetailsFail, app.SKU_CONS);
-        openiab.getSkuDetails(app.getSkuDetailsSuccess, app.getSkuDetailsFail, app.SKU_SUB);
+        openiab.getSkuDetailsList(app.getSkuDetailsListSuccess, app.getSkuDetailsFail, [app.SKU_PRODUCT, app.SKU_CONS, app.SKU_SUB]);
     },
     initFail: function(error)
     {
