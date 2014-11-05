@@ -1,0 +1,2 @@
+OpenIAB-Cordova-Yandex-Sample
+=============================
