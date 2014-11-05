@@ -52,7 +52,7 @@ var app = {
         consumeButton.disabled = false;       
 
         // For debug purposes
-        openiab.getSkuDetailsList(app.getSkuDetailsListSuccess, app.getSkuDetailsFail, [app.SKU_PRODUCT, app.SKU_CONS, app.SKU_SUB]);
+        openiab.getSkuListDetails(app.getSkuDetailsListSuccess, app.getSkuDetailsFail, [app.SKU_PRODUCT, app.SKU_CONS, app.SKU_SUB]);
     },
     initFail: function(error)
     {
@@ -99,14 +99,10 @@ var app = {
 		var initButton = document.getElementById('btn_init');
         var purchaseButton = document.getElementById('btn_purchase');
         var consumeButton = document.getElementById('btn_consume');
-        var testPurchaseButton = document.getElementById('btn_test_purchase');
-        var testConsumeButton = document.getElementById('btn_test_consume');
 
         initButton.onclick = function() { openiab.init(app.initSuccess, app.initFail, [ app.SKU_PRODUCT, app.SKU_CONS, app.SKU_SUB ]); }
         purchaseButton.onclick = function() { openiab.purchaseProduct(app.purchaseSuccess, app.purchaseFail, app.SKU_CONS); }
         consumeButton.onclick = function() { openiab.consume(app.consumeSuccess, app.consumeFail, app.SKU_CONS); }
-        testPurchaseButton.onclick = function() { openiab.purchaseProduct(app.purchaseSuccess, app.purchaseFail, "android.test.purchased"); }
-        testConsumeButton.onclick = function() { openiab.consume(app.consumeSuccess, app.consumeFail, "android.test.purchased"); }
 
         // Set valid app key here
         openiab.options.publicKey = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl7NN1T9BwSiIhxm6hVWyT7HKshsCG87BipwKGRSp1ljxUY2K5sky+0v6o3S7/r90/Oya2q+DkCzeXua2TpfTJS7aAmla/YmWOeETUO4nXzQukCcWL1RCRlA3BZ/qvscj9LKr8yhK/3HGQq//+QcnCBUCbrsXlK7NQ6RQqS624a18QozjWCTtZQTKCMqYc/FBmzmB7vYOXikCkKeDgKv0zbbf7Lc7DXcEaxWcm8tqK6B0Qw4yxwNzZAg14fmcGhqtdRyvzjUDf0x/vA4FFUUI1k9xvHS7k4F8iXtch3U7MSsSZvNC67ZdDvsYKLwBf8zlHcNwfDHqQJx7+wzEtFQj3QIDAQAB';
